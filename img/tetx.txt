@@ -1,0 +1,3 @@
+<img src="C:\Users\User\Desktop\scripts\З днем народження Ромчик\img\ми1.jpg" class="active" alt="Фото 1">
+        <img src="C:\Users\User\Desktop\scripts\З днем народження Ромчик\img\ми2.jpg" alt="Фото 2">
+        <img src="C:\Users\User\Desktop\scripts\З днем народження Ромчик\img\ми3.jpg" alt="Фото 3">
