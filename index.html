@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З днем народження!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            background-color: #ff4b2b;
+            color: white;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+        }
+        .carousel {
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 20px;
+            display: none;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            display: none;
+            border-radius: 10px;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        #greeting-message {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>З днем народження, Ромчик</h1>
+    <p>Старалась привітати тебе якось по своєму, я далеко не професіонал і
+         навіть такий простий сайт в основному більшість розміток я спіздила, але тут як не як є частичка мене :)</p>
+    <button onclick="startConfetti()">Включай літаючі кувляхі</button>
+    <button onclick="showGreeting()">Побажаннячка</button>
+    <button onclick="showCarousel()">Ми какащке</button>
+    <canvas id="confetti-canvas"></canvas>
+    
+    <div class="carousel" id="photo-carousel">
+        <img src="C:\Users\User\Desktop\scripts\З днем народження Ромчик\img\ми1.jpg" class="active" alt="Фото 1">
+        <img src="C:\Users\User\Desktop\scripts\З днем народження Ромчик\img\ми2.jpg" alt="Фото 2">
+        <img src="C:\Users\User\Desktop\scripts\З днем народження Ромчик\img\ми3.jpg" alt="Фото 3">
+    </div>
+    
+    <div id="greeting-message">Ми пройшли дуже цікаві періоди нашої з тобою дружби, між нами було куча неорозумінь, я стараюсь писати від душі
+        надіюсь хоча б така дрібничка як цей непонятний набір скриптів зробить тобі приємно. Ти чудовий друг, ти пережив зі мною мої тяжкі періоди
+        так само як і я з тобою переживала твої. Мені часто казали, що дружби між хлопцем та дівчиною не існує, але ми є дуже хорошим прикладом.
+        Ти нереально чудова, добра, щира людина, таких як ти одиниці, я дійсно ціню це в тобі. В першу чергу я тобі бажаю крепкого здоров'я, міцного та ПОТУЖНОГО. 
+        Бажаю тобі успіхів у твоїх починаннях, вдалих співбесід на хороші посади. Щоб у змаганнях всі медалі були твої, бо я завжди буду рахувати що саме ти на них заслуговуєш! 
+        Бажаю щоб гроші падали на тебе з неба і ти ніколи ні в чому не потребував. Знайти тобі "ту саму", яка буде кохати тебе, доповнювати тебе, 
+        задарювати тебе ласкою, теплом, любов'ю, жіночністю, турботою. Бажаю більше щирих посмішок, яскравих подій, щоб кожен твій день був сонячним та сповненим жаги до життя. 
+        Щоб твоя мужність, впевненість у собі, твоя харизма росли з кожним днем. Більше тобі вірності від людей, єдності з ними, успішних угод, довгосрочних відданих відносин з людьми 
+        різних сфер. Знайти себе, розвиватися, сапомознавати себе, відкриватися собі, відчувати самого себе, ЛЮБИТИ СЕБЕ. Ти дійсно чудова людина, ти повинен поважати цю людину як ніхто, 
+        поважаючи себе тебе будуть поважати і окружаючі, все починається з тебе, покажи всім свою гідність, покажи що ти можеш, що ти стаєш краще, покажи це самому собі. 
+        Ти сильний! Ти чоловік з великої букви! Навіть якщо ти це не помічаєш, я даю тобі знати що це помічають інші. У тебе великий потенціал, у тобі я бачу хоробрість Морро та впевненість, 
+        крутість, силу Кая, харизму Джея, витримку Зейна і віриш ти чи ні але також мудрість Гармадона. Ти та людина яка ПОВИННА жити в кайф, звершувати, створювати. Ти реально займаєш далеко не 
+        останнє місце у моєму житті, в любій ситуації я згадую за тебе: "А вот Рома...", "Зато Рома...", "До речі Рома..." і завжди все у позитивному кличі!
+        Ставай ще кращим! Ламай рамки! Нехай рвуться пиздаки тих, хто сумнівався у тобі! З днем народження, самий крутий мій кентік! 
+    </div>
+    
+    <script>
+        function showCarousel() {
+            document.getElementById("photo-carousel").style.display = "block";
+            setInterval(showNextImage, 3000);
+        }
+        
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".carousel img");
+        
+        function showNextImage() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+        }
+        
+        function showGreeting() {
+            document.getElementById("greeting-message").style.display = "block";
+        }
+        
+        function startConfetti() {
+            const canvas = document.getElementById("confetti-canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            let particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 5 + 2,
+                    d: Math.random() * 2 + 1,
+                    color: `hsl(${Math.random() * 360}, 100%, 50%)`
+                });
+            }
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    ctx.closePath();
+                });
+            }
+            function updateParticles() {
+                particles.forEach(p => {
+                    p.y += p.d;
+                    if (p.y > canvas.height) {
+                        p.y = 0;
+                        p.x = Math.random() * canvas.width;
+                    }
+                });
+            }
+            setInterval(() => {
+                drawParticles();
+                updateParticles();
+            }, 30);
+        }
+    </script>
+</body>
+</html>
